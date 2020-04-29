@@ -1,2 +1,2 @@
-include ':app'
+include ':stock', ':compon'
 rootProject.name='DePro'
