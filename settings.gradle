@@ -1,2 +1,2 @@
-include ':stock', ':compon'
+include ':stock', ':compon', ':vinaigrette'
 rootProject.name='DePro'

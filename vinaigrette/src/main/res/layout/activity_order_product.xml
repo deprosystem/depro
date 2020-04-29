@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray">
+    <RelativeLayout
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_header"
+        android:background="@color/primary"
+        android:elevation="@dimen/pad_6">
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="@dimen/h_header"
+            android:layout_height="@dimen/h_header"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/nar_light" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/st_20_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/pad_72"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/tool"
+        android:layout_height="@dimen/pad_70">
+
+        <com.dpcsa.compon.custom_components.ComponTextView
+            android:id="@+id/amount"
+            style="@style/st_18_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pad_24"
+            android:layout_marginTop="@dimen/pad_12"
+            app:numberFormat="#0.00"
+            android:textStyle="bold"/>
+
+        <com.dpcsa.compon.custom_components.ComponTextView
+            android:id="@+id/count"
+            style="@style/st_18_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pad_24"
+            android:layout_marginTop="@dimen/pad_12"
+            android:layout_toRightOf="@+id/amount"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/total">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/send"
+            android:layout_marginLeft="@dimen/pad_8"
+            android:layout_marginRight="@dimen/pad_8"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/pad_24" />
+
+        <TextView
+            android:id="@+id/send"
+            style="@style/st_button_1"
+            android:layout_marginTop="@dimen/pad_6"
+            android:layout_marginBottom="@dimen/pad_6"
+            android:layout_marginRight="@dimen/pad_32"
+            android:layout_marginLeft="@dimen/pad_32"
+            android:layout_alignParentBottom="true"
+            android:text="@string/profile_send" />
+    </RelativeLayout>
+</RelativeLayout>
