@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-
 android {
     compileSdkVersion 29
 
@@ -28,6 +27,17 @@ android {
         }
     }
 
+    allprojects {
+        repositories { jcenter() }
+        tasks.withType(Javadoc).all {
+            enabled = false
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -37,7 +47,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-//    implementation 'androidx.appcompat:appcompat:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -53,7 +62,6 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:3.3.0'
     implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
 
-    // Glide's OkHttp3 Integration
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.1.1@aar'
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
     implementation 'com.android.volley:volley:1.1.1'
@@ -76,3 +84,30 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.google.firebase:firebase-messaging:20.0.0'
 }
+
+ext {
+    bintrayRepo = 'compon'
+    bintrayName = 'compon'
+
+    publishedGroupId = 'github.com/deprosystem/depro'
+    libraryName = 'compon'
+    artifact = 'compon'
+
+    libraryDescription = 'Library for declarative programming client server applications on Android'
+
+    siteUrl = 'https://github.com/deprosystem/depro'
+    gitUrl = 'https://github.com/deprosystem/depro.git'
+
+    libraryVersion = '3.0.1'
+
+    developerId = 'deprosystem'
+    developerName = 'deprosystem'
+    developerEmail = 'deprosyst@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

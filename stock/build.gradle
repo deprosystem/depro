@@ -39,5 +39,5 @@ dependencies {
 
     implementation project(':compon')
     implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+//    implementation 'com.google.firebase:firebase-messaging:20.0.0'
 }
